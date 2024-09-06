@@ -20,7 +20,8 @@ then
         echo "git installtion was not successfull...check it"
         exit 1
     else
-        echo "git installtion was successfull.."   
+        echo "git installtion was successfull.."
+    fi       
 else
     echo "git is alredy installed no need to reinstall"
 fi
