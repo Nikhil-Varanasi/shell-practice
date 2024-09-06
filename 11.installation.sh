@@ -40,4 +40,4 @@ then
     fi
 else
     echo "mysql was alredy installed.. nothing to do.." 
-fi   
+fi
