@@ -1,4 +1,4 @@
-!# /bin/bash
+#! /bin/bash
 
 #index starts from 0 , soze start from 1
 
