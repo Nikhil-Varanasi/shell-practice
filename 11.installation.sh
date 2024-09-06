@@ -10,7 +10,7 @@ then
 fi
 #dnf install git -y
 
-dnf list installed git
+dnf list installed gittt
 if [ $? -ne 0 ]
 then
     echo "git is not yet installled,lets install it!"
