@@ -6,7 +6,8 @@ CHECK_ROOT(){
     then
         echo "please run the script with root proivilages"
         exit 1
-}
+    fi
+}        
 
 VALIDATE(){
     if [ $1 -ne 0 ]
