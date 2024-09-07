@@ -31,6 +31,16 @@ VALIDATE(){
 }
 CHECK_ROOT
 
+USAGE() {
+    echo "usage:: sudo sh 16-redirectory.sh package1 package2.."
+    exit 1
+}
+
+if [ $# -eq 0 ]
+then
+    USAGE
+fi
+
 for package in $@
 do
     dnf list installed $package &>>LOG_FILE
