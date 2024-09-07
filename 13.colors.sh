@@ -6,6 +6,7 @@ Y="\e[33m"
 N="\e[0m"
 
 CHECK_ROOT(){
+    echo "hi hello"
     if [ $USERID -ne 0 ]
     then
         echo "please run the script with root proivilages"
