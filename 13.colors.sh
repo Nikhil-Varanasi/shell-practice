@@ -23,6 +23,8 @@ VALIDATE(){
     fi
 }
 
+CHECK_ROOT
+
 dnf list installed git
 if [ $? -ne 0 ]
 then
