@@ -15,7 +15,7 @@ N="\e[0m"
 CHECK_ROOT(){
     if [ $USERID -ne 0 ]
     then
-        echo -e "$R please run the script with root proivilages $N" &>>$LOG_FILE
+        echo -e "$R please run the script with root proivilages $N" | tee -a $LOG_FILE
         exit 1
     fi
 }        
@@ -23,11 +23,10 @@ CHECK_ROOT(){
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2 was $R not  sucessfull $N..look in to it.." &>>$LOG_FILE
+        echo -e "$2 was $R not  sucessfull $N..look in to it.." | tee -a $LOG_FILE
         exit 1
     else
-        echo "$2 was $G successfull $N" &>>$LOG_FILE
-    fi
+        echo "$2 was $G successfull $N" | tee -a $LOG_FILE
 }
 
 USAGE() {
@@ -35,8 +34,7 @@ USAGE() {
     exit 1
 }
 
-echo "script started executing at :: $(date)" &>>$LOG_FILE
-CHECK_ROOT
+echo "script started executing at :: $(date)" | tee -a $LOG_FILE
 
 if [ $# -eq 0 ]
 then
@@ -49,10 +47,10 @@ do
     dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]
     then
-        echo "$pacakge  is not yet installled,lets install it!"  &>>$LOG_FILE
+        echo "$pacakge  is not yet installled,lets install it!"  | tee -a $LOG_FILE
         dnf install $package -y
         VALIDATE $? "installinng $package"  
     else
-        echo "$package is alredy installed no need to reinstall"  &>>$LOG_FILE
+        echo "$package is alredy installed no need to reinstall"  | tee -a $LOG_FILE
     fi
 done
