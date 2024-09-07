@@ -15,7 +15,7 @@ N="\e[0m"
 CHECK_ROOT(){
     if [ $USERID -ne 0 ]
     then
-        echo -e "$R please run the script with root proivilages $N" &>>LOG_FILE
+        echo -e "$R please run the script with root proivilages $N" &>>$LOG_FILE
         exit 1
     fi
 }        
@@ -23,33 +23,35 @@ CHECK_ROOT(){
 VALIDATE(){
     if [ $1 -ne 0 ]
     then
-        echo -e "$2 was $R not  sucessfull $N..look in to it.." &>>LOG_FILE
+        echo -e "$2 was $R not  sucessfull $N..look in to it.." &>>$LOG_FILE
         exit 1
     else
-        echo "$2 was $G successfull $N" &>>LOG_FILE
+        echo "$2 was $G successfull $N" &>>$LOG_FILE
     fi
 }
-CHECK_ROOT
 
 USAGE() {
     echo "usage:: sudo sh 16-redirectory.sh package1 package2.."
     exit 1
 }
 
+CHECK_ROOT
+
 if [ $# -eq 0 ]
 then
     USAGE
 fi
 
+
 for package in $@
 do
-    dnf list installed $package &>>LOG_FILE
+    dnf list installed $package &>>$LOG_FILE
     if [ $? -ne 0 ]
     then
-        echo "$pacakge  is not yet installled,lets install it!"  &>>LOG_FILE
+        echo "$pacakge  is not yet installled,lets install it!"  &>>$LOG_FILE
         dnf install $package -y
         VALIDATE $? "installinng $package"  
     else
-        echo "$package is alredy installed no need to reinstall"  &>>LOG_FILE
+        echo "$package is alredy installed no need to reinstall"  &>>$LOG_FILE
     fi
 done
