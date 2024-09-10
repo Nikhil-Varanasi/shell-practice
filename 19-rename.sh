@@ -9,7 +9,7 @@ G="\e[32m"
 Y="\e[33m"
 N="\e[0m"
 
-USAGGE(){
+USAGE(){
     echo -e "$R USAGE$N:: sh 19-rename.sh <source> <destination> <days(optional)>"
 }
 
