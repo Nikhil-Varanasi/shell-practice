@@ -14,7 +14,7 @@ USAGGE(){
 }
 
 #check if the source and destinon is provided or not
-if [ $# -lt 2]
+if [ $# -lt 2 ]
 then
     USAGE
 fi  
