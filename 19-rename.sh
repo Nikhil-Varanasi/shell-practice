@@ -30,7 +30,8 @@ then
 fi
 
 FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
-echo "FILES::$FILES"
+#echo "FILES::$FILES"
+
 if [ ! -z $FILES ]
 then
     echo "FILES FOUND"
