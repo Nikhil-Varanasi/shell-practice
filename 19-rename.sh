@@ -18,3 +18,22 @@ if [ $# -lt 2 ]
 then
     USAGE
 fi  
+
+if [ ! -d $SOURCE_DIR ]
+then
+    echo "$SOURCE_DIR does not exist...please chech"
+fi
+
+if [ ! -d $DEST_DIR ]
+then
+    echo "$DEST_DIR does not exist...please check"
+fi
+
+FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
+
+if [ -n $FILES ]
+then
+    echo "FILES FOUND"
+else
+    echo "No files found older then $DAYS"
+fi
