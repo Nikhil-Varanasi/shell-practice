@@ -44,7 +44,7 @@ if [ ! -z "$FILES" ] #true if FILES is empty, ! nakes it expression false
 then
     echo "FILES FOUND"
     ZIP_FILE="$DEST_DIR/app-logs-$TIMESTAMP.zip"
-    find . -name "*.log" -mtime +14 | zip $(ZIP_FILE)" -@
+    find . -name "*.log" -mtime +14 | zip $(ZIP_FILE) -@
 
     #check if zip file successfull created or not
     if [ -f $ZIP_FILE ]
@@ -61,5 +61,5 @@ then
         exit 1
     fi        
 else
-    echo "No files found older then $DAYS"
+    echo "No files found older then $DAYS "
 fi
