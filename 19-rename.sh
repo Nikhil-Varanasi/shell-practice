@@ -29,12 +29,12 @@ then
     echo "$DEST_DIR does not exist...please check"
 fi
 
-FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
-echo "Files: $FILES"
+# FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
+# echo "Files: $FILES"
 
-if [ ! -Z $FILES ] #true if FILES is empty, ! nakes it expression false
-then
-    echo "FILES FOUND"
-else
-    echo "No files found older then $DAYS"
-fi
+# if [ ! -Z $FILES ] #true if FILES is empty, ! nakes it expression false
+# then
+#     echo "FILES FOUND"
+# else
+#     echo "No files found older then $DAYS"
+# fi
