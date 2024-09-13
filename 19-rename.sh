@@ -32,7 +32,7 @@ fi
 FILES=$(find ${SOURCE_DIR} -name "*.log" -mtime +14)
 #echo "Files: $FILES"
 
-if [ -n ${FILES} ]
+if [ -n "$FILES" ]
 then
     echo "files are found"
 else
